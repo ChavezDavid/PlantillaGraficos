@@ -11,7 +11,17 @@
 #include <iostream>
 using namespace std;
 
+GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
+
+//Aqui esta bien para cambiar los valores de las variables de mi programa
 void actualizar() {
+	red += 0.001;
+	green += 0.001;
+	blue += 0.001;
+
+	if (red > 1) red = 1;
+	if (green > 1)green = 0;
+	if (blue > 1) blue = 0;
 
 }
 
@@ -60,11 +70,11 @@ int main()
 	cout << "Version de OpenGL: " << version << endl;
 
 	//Ciclo de dibujo
-	while (!glfwWindowShouldClose(window)) {
+	while (!glfwWindowShouldClose(window)) {		
 		//Establecer el area de render (viewport)
 		glViewport(0, 0, ancho, alto);
 		//Establecer el color con el que se limpia
-		glClearColor(0.3, 0.5, 0.5, 1);
+		glClearColor(red, green, blue, 1);
 		//Limpiar la pantalla
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
