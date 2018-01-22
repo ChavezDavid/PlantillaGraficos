@@ -15,18 +15,36 @@ GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
 
 //Aqui esta bien para cambiar los valores de las variables de mi programa
 void actualizar() {
-	red += 0.001;
-	green += 0.001;
-	blue += 0.001;
-
-	if (red > 1) red = 1;
-	if (green > 1)green = 0;
-	if (blue > 1) blue = 0;
-
+	/*if(red !=1) red += 0.001;
+	if(green !=1 && red >= 1) green += 0.001;
+	if(blue !=1 && red >= 1 && green >= 1) blue += 0.001;
+	*/
 }
 
 void dibujar() {
+	glBegin(GL_TRIANGLES);//Inicia la rutina con un modo de dibujo
 
+	//Primer triangulo
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex3f(-1.0f, 0.0f, 0.0f);
+
+	glColor3f(0.0f, 1.0f, 0.0f);
+	glVertex3f(0.0f, 1.0f, 0.0f);
+
+	glColor3f(0.0f, 0.0f, 1.0f);
+	glVertex3f(1.0f, 0.0f, 0.0f);
+
+	//Segundo triangulo
+	glColor3f(0.0f, 0.0f, 0.5f);
+	glVertex3f(1.0f, 0.0f, 0.0f);
+
+	glColor3f(0.0f, 0.5f, 0.0f);
+	glVertex3f(0.0f, -1.0f, 0.0f);
+
+	glColor3f(0.5f, 0.0f, 0.0f);
+	glVertex3f(-1.0f, 0.0f, 0.0f);
+
+	glEnd();//Finaliza la rutina
 }
 
 int main()
