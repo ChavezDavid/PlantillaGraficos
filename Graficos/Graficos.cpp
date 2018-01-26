@@ -113,14 +113,33 @@ void dibujar() {
 	glVertex3f(0.0f, -0.3f, 0.0f);//*
 
 	glEnd();//Finaliza la rutina
+	*/
 
+	//Suelo
 	glBegin(GL_POLYGON);
-	glColor3f(0.5f, 0.2f, 0.7f);
+
+	glColor3f(0.0f, 0.5f, 0.0f);
+	glVertex3f(-1.0f, -0.3f, 0.0f);
+
+	glColor3f(0.0f, 0.5f, 0.0f);
+	glVertex3f(1.0f, -0.3f, 0.0f);
+
+	glColor3f(0.0f, 0.5f, 0.0f);
+	glVertex3f(1.0f, -1.0f, 0.0f);
+
+	glColor3f(0.0f, 0.5f, 0.0f);
+	glVertex3f(-1.0f, -1.0f, 0.0f);
+
+	glEnd();
+
+	//Sol
+	glBegin(GL_POLYGON);
+	glColor3f(0.8f, 0.8f, 0.0f);
 	for (float i = 0; i < 360; i++) {
 		
 		glVertex3f(0.2 * cos(i) + 0.4, 0.2 * sin(i) + 0.6, 0);
 	}
-	glEnd();*/
+	glEnd();
 }
 
 int main()
