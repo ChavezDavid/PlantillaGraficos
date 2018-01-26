@@ -7,6 +7,7 @@
 #define GLEW_STATIC
 #include "GL\glew.h"
 #include "GLFW\glfw3.h"
+#include <math.h>
 
 #include <iostream>
 using namespace std;
@@ -21,10 +22,18 @@ void actualizar() {
 	*/
 }
 
-void dibujar() {
-	glBegin(GL_TRIANGLES);//Inicia la rutina con un modo de dibujo
+void dibujarCasa() {
+	glBegin(GL_QUADS);
 
-	//Primer triangulo
+
+
+	glEnd();
+}
+
+void dibujar() {
+	dibujarCasa();
+	/*glBegin(GL_LINE_LOOP);//Inicia la rutina con un modo de dibujo
+
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glVertex3f(-1.0f, 0.0f, 0.0f);
 
@@ -33,18 +42,35 @@ void dibujar() {
 
 	glColor3f(0.0f, 0.0f, 1.0f);
 	glVertex3f(1.0f, 0.0f, 0.0f);
-
-	//Segundo triangulo
-	glColor3f(0.0f, 0.0f, 0.5f);
-	glVertex3f(1.0f, 0.0f, 0.0f);
-
+	
 	glColor3f(0.0f, 0.5f, 0.0f);
 	glVertex3f(0.0f, -1.0f, 0.0f);
 
-	glColor3f(0.5f, 0.0f, 0.0f);
-	glVertex3f(-1.0f, 0.0f, 0.0f);
+	glEnd();
 
-	glEnd();//Finaliza la rutina
+	glBegin(GL_POLYGON);//Inicia la rutina con un modo de dibujo
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex3f(-0.3f, 0.0f, 0.0f);//*
+
+	glColor3f(0.0f, 1.0f, 0.0f);
+	glVertex3f(0.0f, 0.3f, 0.0f);//*
+
+	glColor3f(0.0f, 0.0f, 1.0f);
+	glVertex3f(0.3f, 0.0f, 0.0f);//*
+
+	glColor3f(0.0f, 0.5f, 0.0f);
+	glVertex3f(0.0f, -0.3f, 0.0f);//*
+
+	glEnd();//Finaliza la rutina*/
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.5f, 0.2f, 0.7f);
+	for (float i = 0; i < 360; i++) {
+		
+		glVertex3f(0.2 * cos(i) + 0.4, 0.2 * sin(i) + 0.6, 0);
+	}
+	glEnd();
 }
 
 int main()
@@ -53,8 +79,8 @@ int main()
 	GLFWwindow *window;
 
 	//Propiedades de la ventana
-	GLfloat ancho = 1024;
-	GLfloat alto = 768;
+	GLfloat ancho = 800;
+	GLfloat alto = 800;
 
 	//Inicializacion de GLFW
 	if (!glfwInit()) {
