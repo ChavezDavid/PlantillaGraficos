@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
+GLfloat red = 0.0f, green = 0.7f, blue = 1.0f;
 
 //Aqui esta bien para cambiar los valores de las variables de mi programa
 void actualizar() {
@@ -27,27 +27,54 @@ void dibujarCasa() {
 	glBegin(GL_POLYGON);//Inicia la rutina con un modo de dibujo
 
 	//Pared y techo
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(-0.2f, 0.2f, 0.0f);
+	glColor3f(0.5f, 0.0f, 1.0f);
+	glVertex3f(-0.3f, 0.3f, 0.0f);
 
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(-0.0f, 0.4f, 0.0f);
+	glColor3f(0.5f, 0.0f, 1.0f);
+	glVertex3f(-0.0f, 0.6f, 0.0f);
 
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.2f, 0.2f, 0.0f);
+	glColor3f(0.5f, 0.0f, 1.0f);
+	glVertex3f(0.3f, 0.3f, 0.0f);
 
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.2f, -0.2f, 0.0f);
+	glColor3f(0.5f, 0.0f, 1.0f);
+	glVertex3f(0.3f, -0.3f, 0.0f);
 
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(-0.2f, -0.2f, 0.0f);
+	glColor3f(0.5f, 0.0f, 1.0f);
+	glVertex3f(-0.3f, -0.3f, 0.0f);
 
 	glEnd();
 
 	//Puerta
 	glBegin(GL_POLYGON);
 
-	
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(-0.1f, 0.0f, 0.0f);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.1f, 0.0f, 0.0f);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.1f, -0.3f, 0.0f);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(-0.1f, -0.3f, 0.0f);
+
+	glEnd();
+
+	//Ventana
+	glBegin(GL_QUADS);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.1f, 0.0f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.2f, 0.0f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.2f, -0.1f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.1f, -0.1f, 0.0f);
 
 	glEnd();
 
@@ -102,8 +129,8 @@ int main()
 	GLFWwindow *window;
 
 	//Propiedades de la ventana
-	GLfloat ancho = 800;
-	GLfloat alto = 800;
+	GLfloat ancho = 1024;
+	GLfloat alto = 720;
 
 	//Inicializacion de GLFW
 	if (!glfwInit()) {
