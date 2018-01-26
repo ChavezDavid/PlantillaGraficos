@@ -23,11 +23,34 @@ void actualizar() {
 }
 
 void dibujarCasa() {
-	glBegin(GL_QUADS);
 
+	glBegin(GL_POLYGON);//Inicia la rutina con un modo de dibujo
 
+	//Pared y techo
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(-0.2f, 0.2f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(-0.0f, 0.4f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.2f, 0.2f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.2f, -0.2f, 0.0f);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(-0.2f, -0.2f, 0.0f);
 
 	glEnd();
+
+	//Puerta
+	glBegin(GL_POLYGON);
+
+	
+
+	glEnd();
+
 }
 
 void dibujar() {
@@ -62,7 +85,7 @@ void dibujar() {
 	glColor3f(0.0f, 0.5f, 0.0f);
 	glVertex3f(0.0f, -0.3f, 0.0f);//*
 
-	glEnd();//Finaliza la rutina*/
+	glEnd();//Finaliza la rutina
 
 	glBegin(GL_POLYGON);
 	glColor3f(0.5f, 0.2f, 0.7f);
@@ -70,7 +93,7 @@ void dibujar() {
 		
 		glVertex3f(0.2 * cos(i) + 0.4, 0.2 * sin(i) + 0.6, 0);
 	}
-	glEnd();
+	glEnd();*/
 }
 
 int main()
