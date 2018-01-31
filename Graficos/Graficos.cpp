@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-GLfloat red = 0.0f, green = 0.7f, blue = 1.0f;
+GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
 
 //Aqui esta bien para cambiar los valores de las variables de mi programa
 void actualizar() {
@@ -22,123 +22,18 @@ void actualizar() {
 	*/
 }
 
-void dibujarCasa() {
-
-	glBegin(GL_POLYGON);//Inicia la rutina con un modo de dibujo
-
-	//Pared y techo
-	glColor3f(0.5f, 0.0f, 1.0f);
-	glVertex3f(-0.3f, 0.3f, 0.0f);
-
-	glColor3f(0.5f, 0.0f, 1.0f);
-	glVertex3f(-0.0f, 0.6f, 0.0f);
-
-	glColor3f(0.5f, 0.0f, 1.0f);
-	glVertex3f(0.3f, 0.3f, 0.0f);
-
-	glColor3f(0.5f, 0.0f, 1.0f);
-	glVertex3f(0.3f, -0.3f, 0.0f);
-
-	glColor3f(0.5f, 0.0f, 1.0f);
-	glVertex3f(-0.3f, -0.3f, 0.0f);
-
-	glEnd();
-
-	//Puerta
-	glBegin(GL_POLYGON);
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(-0.1f, 0.0f, 0.0f);
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.1f, 0.0f, 0.0f);
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.1f, -0.3f, 0.0f);
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(-0.1f, -0.3f, 0.0f);
-
-	glEnd();
-
-	//Ventana
-	glBegin(GL_QUADS);
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.1f, 0.0f, 0.0f);
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.2f, 0.0f, 0.0f);
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.2f, -0.1f, 0.0f);
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.1f, -0.1f, 0.0f);
-
-	glEnd();
-
-}
-
 void dibujar() {
-	dibujarCasa();
-	/*glBegin(GL_LINE_LOOP);//Inicia la rutina con un modo de dibujo
+	glBegin(GL_TRIANGLES);
 
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex3f(-1.0f, 0.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(0.0, 1.0, 0.0);
 
-	glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(0.0f, 1.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(1.0, 0.0, 0.0);
 
-	glColor3f(0.0f, 0.0f, 1.0f);
-	glVertex3f(1.0f, 0.0f, 0.0f);
-	
-	glColor3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(0.0f, -1.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex3f(-1.0, 0.0, 0.0);
 
-	glEnd();
-
-	glBegin(GL_POLYGON);//Inicia la rutina con un modo de dibujo
-
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex3f(-0.3f, 0.0f, 0.0f);//*
-
-	glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(0.0f, 0.3f, 0.0f);//*
-
-	glColor3f(0.0f, 0.0f, 1.0f);
-	glVertex3f(0.3f, 0.0f, 0.0f);//*
-
-	glColor3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(0.0f, -0.3f, 0.0f);//*
-
-	glEnd();//Finaliza la rutina
-	*/
-
-	//Suelo
-	glBegin(GL_POLYGON);
-
-	glColor3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(-1.0f, -0.3f, 0.0f);
-
-	glColor3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(1.0f, -0.3f, 0.0f);
-
-	glColor3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(1.0f, -1.0f, 0.0f);
-
-	glColor3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(-1.0f, -1.0f, 0.0f);
-
-	glEnd();
-
-	//Sol
-	glBegin(GL_POLYGON);
-	glColor3f(0.8f, 0.8f, 0.0f);
-	for (float i = 0; i < 360; i++) {
-		
-		glVertex3f(0.2 * cos(i) + 0.4, 0.2 * sin(i) + 0.6, 0);
-	}
 	glEnd();
 }
 
