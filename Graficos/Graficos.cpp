@@ -13,6 +13,7 @@
 using namespace std;
 
 GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
+GLfloat angulo = 0.0f;
 
 //Aqui esta bien para cambiar los valores de las variables de mi programa
 void actualizar() {
@@ -20,21 +21,36 @@ void actualizar() {
 	if(green !=1 && red >= 1) green += 0.001;
 	if(blue !=1 && red >= 1 && green >= 1) blue += 0.001;
 	*/
+	if (angulo < 360) {
+		angulo += 0.05;
+	}
+	else {
+		angulo = 0.0f;
+	}
 }
 
 void dibujar() {
+	glPushMatrix();
+
+	//glTranslatef(0.2f, -0.2f, 0.0f);
+	//glRotatef(angulo, 1.0f, 0.0f, 0.0f); //Afecta eje X
+	//glRotatef(angulo, 0.0f, 1.0f, 0.0f); //Afecta eje Y
+	glRotatef(angulo, 0.0f, 0.0f, 1.0f); //Afecta eje Z
+	glScalef(0.2f, 0.2f, 0.2f);
+
 	glBegin(GL_TRIANGLES);
 
 	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.0, 1.0, 0.0);
+	glVertex3f(-1.0, -0.5, 0.0);
 
 	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(1.0, 0.0, 0.0);
+	glVertex3f(0.0, 0.5, 0.0);
 
 	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(-1.0, 0.0, 0.0);
+	glVertex3f(1.0, -0.5, 0.0);
 
 	glEnd();
+	glPopMatrix();
 }
 
 int main()
