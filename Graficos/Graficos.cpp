@@ -10,6 +10,7 @@
 #include <math.h>
 
 #include <iostream>
+
 using namespace std;
 
 GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
