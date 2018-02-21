@@ -11,9 +11,19 @@
 
 #include <iostream>
 
+#include "Vertice.h"
+#include "Shader.h"
+
 using namespace std;
 
 GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
+
+vector<Vertice> triangulo;
+GLuint POSICIONid;
+GLuint vertexArrayID;
+GLuint bufferID;
+
+Shader *shader;
 
 //Aqui esta bien para cambiar los valores de las variables de mi programa
 void actualizar() {
@@ -21,12 +31,7 @@ void actualizar() {
 }
 
 void dibujar() {
-	glBegin(GL_TRIANGLES);
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.0, 1.0, 0.0);
-	glVertex3f(1.0, 0.0, 0.0);
-	glVertex3f(-1.0, 0.0, 0.0);
-	glEnd();
+	
 }
 
 int main()
@@ -68,6 +73,21 @@ int main()
 
 	const GLubyte *version = glGetString(GL_VERSION);
 	cout << "Version de OpenGL: " << version << endl;
+
+	//Inicializar triangulo
+	Vertice v1 = { vec3(-1.0f, -0.5f, 0.0f), vec4(1.0f, 1.0f, 1.0f, 1.0f) };
+	Vertice v2 = { vec3(0.0f, 0.5f, 0.0f), vec4(1.0f, 1.0f, 1.0f, 1.0f) };
+	Vertice v3 = { vec3(1.0f, -0.5f, 0.0f), vec4(1.0f, 1.0f, 1.0f, 1.0f) };
+	
+	triangulo.push_back(v1);
+	triangulo.push_back(v2);
+	triangulo.push_back(v3);
+
+	//Crear instancia del shader
+	const char * rutaVertex = "vShaderSimple.shader";
+	const char * rutaFragment = "fShaderSimple.shader";
+
+	shader = new Shader(rutaVertex, rutaFragment);
 
 	//Ciclo de dibujo
 	while (!glfwWindowShouldClose(window)) {		
