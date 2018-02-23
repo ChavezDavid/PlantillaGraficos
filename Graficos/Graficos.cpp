@@ -31,7 +31,16 @@ void actualizar() {
 }
 
 void dibujar() {
-	
+	//Enlazar el shader
+	shader->enlazarShader();
+	//Especificar el vertex array
+	glBindVertexArray(vertexArrayID);
+	//Dibujar
+	glDrawArrays(GL_TRIANGLES, 0, triangulo.size());
+	//Soltar el vertex array
+	glBindVertexArray(0);
+	//Soltar el shader
+	shader->desenlazarShader();
 }
 
 int main()
@@ -95,14 +104,26 @@ int main()
 	//Desenlazar el shader
 	shader->desenlazarShader();
 
+	//Crear un vertex array
+	glGenVertexArrays(1, &vertexArrayID);
+	glBindVertexArray(vertexArrayID);
+
+	//Crear un vertex buffer
+	glGenBuffers(1, &bufferID);
+	//De aqui en adelante se trabaja con este buffer
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+	//Llenar el buffer
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertice)*triangulo.size(), triangulo.data(), GL_STATIC_DRAW);
+
 	//Habilitar el atributo
 	glEnableVertexAttribArray(posicionID);
 
 	//Especificar a OpenGL como usar la memoria con ese atributo
 	glVertexAttribPointer(posicionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertice), 0);
 
-	//Crear un vertex array
-	glGenVertexArrays(1, &vertexArrayID);
+	//Soltarlos
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	//Ciclo de dibujo
 	while (!glfwWindowShouldClose(window)) {		
