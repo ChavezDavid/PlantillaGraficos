@@ -19,7 +19,7 @@ using namespace std;
 GLfloat red = 0.0f, green = 0.0f, blue = 0.0f;
 
 vector<Vertice> triangulo;
-GLuint POSICIONid;
+GLuint posicionID;
 GLuint vertexArrayID;
 GLuint bufferID;
 
@@ -88,6 +88,21 @@ int main()
 	const char * rutaFragment = "fShaderSimple.shader";
 
 	shader = new Shader(rutaVertex, rutaFragment);
+
+	//Mapeo de atributos
+	posicionID = glGetAttribLocation(shader->getID(), "posicion");
+
+	//Desenlazar el shader
+	shader->desenlazarShader();
+
+	//Habilitar el atributo
+	glEnableVertexAttribArray(posicionID);
+
+	//Especificar a OpenGL como usar la memoria con ese atributo
+	glVertexAttribPointer(posicionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertice), 0);
+
+	//Crear un vertex array
+	glGenVertexArrays(1, &vertexArrayID);
 
 	//Ciclo de dibujo
 	while (!glfwWindowShouldClose(window)) {		
